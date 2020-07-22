@@ -86,6 +86,7 @@ float bilinear_interpolate(image im, float x, float y, int c);
 image get_image_layer(image m, int l);
 
 YOLODLL_API void free_image(image m);
+LIB_API void copy_image_from_bytes(image im, char *pdata);
 void test_resize(char *filename);
 #endif
 
