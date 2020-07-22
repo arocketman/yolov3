@@ -222,7 +222,7 @@ def detect(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45, debug= False):
     Performs the meat of the detection
     """
     #pylint: disable= C0321
-    im = load_image(image, 0, 0)
+    #im = load_image(image, 0, 0)
     #import cv2
     #custom_image_bgr = cv2.imread(image) # use: detect(,,imagePath,)
     #custom_image = cv2.cvtColor(custom_image_bgr, cv2.COLOR_BGR2RGB)
@@ -230,6 +230,7 @@ def detect(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45, debug= False):
     #import scipy.misc
     #custom_image = scipy.misc.imread(image)
     #im, arr = array_to_image(custom_image)		# you should comment line below: free_image(im)
+    im = image
     if debug: print("Loaded image")
     num = c_int(0)
     if debug: print("Assigned num")
@@ -267,7 +268,7 @@ def detect(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45, debug= False):
     if debug: print("did range")
     res = sorted(res, key=lambda x: -x[1])
     if debug: print("did sort")
-    free_image(im)
+    #free_image(im)
     if debug: print("freed image")
     free_detections(dets, num)
     if debug: print("freed detections")
